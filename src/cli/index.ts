@@ -1,6 +1,9 @@
 import { select } from "@clack/prompts";
-import chalk from "chalk";
+import { bold } from "chalk";
 import { Command } from "commander";
+
+// CONSTS
+import { defaultProjectName } from "../consts";
 
 export const runCli = async () => {
   const program = new Command()
@@ -14,7 +17,14 @@ export const runCli = async () => {
     )
     .parse(process.argv);
 
-  const shadCN = (await select({
+  const programArgs = program.args;
+  if (programArgs.length !== 0) {
+    console.log("Le nom de l'application sera : ", bold(programArgs[0]));
+  }
+
+  const name = programArgs[0];
+
+  const shadCn = (await select({
     message: "Voulez-vous installer ShadCN UI ?",
     options: [
       { value: true, label: "Oui" },
@@ -22,10 +32,8 @@ export const runCli = async () => {
     ],
   })) as boolean;
 
-  console.log(chalk.bold("Vous avez choisi :"));
-  console.log(`ShadCN : ${shadCN ? "Oui" : "Non"}`);
+  console.log(bold("Vous avez choisi :"));
+  console.log(`ShadCN : ${shadCn ? "Oui" : "Non"}`);
 
-  const name = program.args[0];
-
-  return { shadCN, name: name ?? "my-papillon-app" };
+  return { shadCn, name: name ?? defaultProjectName };
 };

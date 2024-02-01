@@ -1,19 +1,23 @@
 {
     "compilerOptions": {
         "module": "CommonJS",
-        "target": "ES6",
+        "target": "ESNext",
         "esModuleInterop": true,
         "allowJs": true,
         "resolveJsonModule": true,
-        "moduleResolution": "node",
+        "moduleResolution": "Node",
         "outDir": "./dist",
         "strict": true,
         "sourceMap": true,
-        "types": ["node"]
+        "types": ["node"],
+        "baseUrl": "./src",
+        "paths": {
+            "*": ["*", "./*", "*/index.js"]
+          },
+        "checkJs": false
     },
     "include": [
-        "src/**/*",
-        "tests/**/*"
+        "./src/**/*"
     ],
     "exclude": [
         "node_modules",
