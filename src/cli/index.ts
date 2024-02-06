@@ -33,7 +33,9 @@ export const runCli = async () => {
   })) as boolean;
 
   console.log(bold("Vous avez choisi :"));
-  console.log(`ShadCN : ${shadCn ? "Oui" : "Non"}`);
+  if (shadCn) {
+    console.log(bold("ShadCN UI"));
+  }
 
-  return { shadCn, name: name ?? defaultProjectName };
+  return { name: name ?? defaultProjectName, shadCn };
 };

@@ -9,7 +9,7 @@ import { type ProjectOptions } from "../types/ProjectOptions";
 // CONSTS
 import { srcTestDir as srcDir } from "../consts";
 
-export const scaffoldProject = async ({ shadCn, name }: ProjectOptions) => {
+export const scaffoldProject = async ({ name, shadCn }: ProjectOptions) => {
   const projectDir = `./${name}`;
 
   const spinner = ora(`Scaffolding in: ${projectDir}...\n`).start();

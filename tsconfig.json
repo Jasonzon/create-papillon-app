@@ -10,9 +10,10 @@
         "strict": true,
         "sourceMap": true,
         "types": ["node"],
-        "baseUrl": "./src",
+        "baseUrl": "./",
         "paths": {
-            "*": ["*", "./*", "*/index.js"]
+            "~/*": ["./src/*"],
+            "*": ["*", "./*", "./src/*", "*/index.js"],
           },
         "checkJs": false
     },

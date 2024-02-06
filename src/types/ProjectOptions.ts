@@ -1,4 +1,4 @@
 export type ProjectOptions = {
-  shadCn: boolean;
   name: string;
+  shadCn: boolean;
 };
